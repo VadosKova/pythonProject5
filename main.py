@@ -12,6 +12,17 @@ def random_number():
         black_list = []
         for i in range(exception_listbox.size()):
             black_list.append(int(exception_listbox.get(i)))
+
+        valid_numbers = []
+        for num in range(min_num, max_num + 1):
+            if num not in black_list:
+                valid_numbers.append(num)
+
+        if valid_numbers:
+            number = random.choice(valid_numbers)
+            result.config(text=str(number))
+        else:
+            messagebox.showinfo('Error', 'No valid numbers')
     else:
         messagebox.showinfo ('Error', 'From > To')
 
