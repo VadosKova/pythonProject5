@@ -1,9 +1,12 @@
-#Задание 1
+#Задание 1, 2
 
 from tkinter import *
+from tkinter import ttk
 import random
 
 def random_number():
+    min_num = int(min_combobox.get())
+    max_num = int(max_combobox.get())
     number = random.randint(1, 100)
     label.config(text=str(number))
 
