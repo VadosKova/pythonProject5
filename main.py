@@ -1,5 +1,5 @@
 #Задание 1, 2, 3, 4
-
+from logging import exception
 from tkinter import *
 from tkinter import ttk, messagebox
 import random
@@ -25,6 +25,12 @@ def random_number():
             messagebox.showinfo('Error', 'No valid numbers')
     else:
         messagebox.showinfo ('Error', 'From > To')
+
+def add_exception():
+    exception = exception_entry.get()
+    if exception.isdigit():
+        exception_listbox.insert(END, exception)
+        exception_entry.delete(0, END)
 
 root = Tk()
 root.title("Random num")
