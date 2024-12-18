@@ -16,13 +16,24 @@ def random_number():
 
 root = Tk()
 root.title("Random num")
-root.geometry("300x300")
+root.geometry("350x350")
+
+label_diapason = Label(root, text="Диапазон:")
+label_diapason.pack(pady=10)
+
+min_combobox = ttk.Combobox(root, values=[str(i) for i in range(1, 101)])
+min_combobox.set("1")
+min_combobox.pack(pady=5)
+
+max_combobox = ttk.Combobox(root, values=[str(i) for i in range(1, 101)])
+max_combobox.set("100")
+max_combobox.pack(pady=5)
 
 button = Button(root, text="Generate", command=random_number)
 button.pack(pady=20)
 
-label = Label(root, text="")
-label.pack()
+result = Label(root, text="")
+result.pack()
 
 
 root.mainloop()
