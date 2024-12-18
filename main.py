@@ -1,7 +1,7 @@
-#Задание 1, 2
+#Задание 1, 2, 3
 
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import random
 
 def random_number():
@@ -12,7 +12,7 @@ def random_number():
         number = random.randint(min_num, max_num)
         result.config(text=str(number))
     else:
-        result.config(text="Error")
+        messagebox.showinfo ('Error', 'From > To')
 
 root = Tk()
 root.title("Random num")
