@@ -1,5 +1,4 @@
 #Задание 1, 2, 3, 4
-from logging import exception
 from tkinter import *
 from tkinter import ttk, messagebox
 import random
