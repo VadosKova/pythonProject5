@@ -21,9 +21,15 @@ root.geometry("350x350")
 label_diapason = Label(root, text="Диапазон:")
 label_diapason.pack(pady=10)
 
+min_label = Label(root, text="От:")
+min_label.pack(pady=5)
+
 min_combobox = ttk.Combobox(root, values=[str(i) for i in range(1, 101)])
 min_combobox.set("1")
 min_combobox.pack(pady=5)
+
+max_label = Label(root, text="До:")
+max_label.pack(pady=5)
 
 max_combobox = ttk.Combobox(root, values=[str(i) for i in range(1, 101)])
 max_combobox.set("100")
