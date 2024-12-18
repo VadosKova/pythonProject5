@@ -1,4 +1,4 @@
-#Задание 1, 2, 3
+#Задание 1, 2, 3, 4
 
 from tkinter import *
 from tkinter import ttk, messagebox
@@ -9,8 +9,9 @@ def random_number():
     max_num = int(max_combobox.get())
 
     if min_num < max_num:
-        number = random.randint(min_num, max_num)
-        result.config(text=str(number))
+        black_list = []
+        for i in range(exception_listbox.size()):
+            black_list.append(int(exception_listbox.get(i)))
     else:
         messagebox.showinfo ('Error', 'From > To')
 
