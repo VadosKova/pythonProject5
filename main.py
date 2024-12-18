@@ -7,8 +7,12 @@ import random
 def random_number():
     min_num = int(min_combobox.get())
     max_num = int(max_combobox.get())
-    number = random.randint(1, 100)
-    label.config(text=str(number))
+
+    if min_num < max_num:
+        number = random.randint(min_num, max_num)
+        result.config(text=str(number))
+    else:
+        result.config(text="Error")
 
 root = Tk()
 root.title("Random num")
