@@ -1,5 +1,5 @@
-#Задание 1, 2, 3
-
+#Задание 1, 2, 3, 4
+from logging import exception
 from tkinter import *
 from tkinter import ttk, messagebox
 import random
@@ -9,14 +9,32 @@ def random_number():
     max_num = int(max_combobox.get())
 
     if min_num < max_num:
-        number = random.randint(min_num, max_num)
-        result.config(text=str(number))
+        black_list = []
+        for i in range(exception_listbox.size()):
+            black_list.append(int(exception_listbox.get(i)))
+
+        valid_numbers = []
+        for num in range(min_num, max_num + 1):
+            if num not in black_list:
+                valid_numbers.append(num)
+
+        if valid_numbers:
+            number = random.choice(valid_numbers)
+            result.config(text=str(number))
+        else:
+            messagebox.showinfo('Error', 'No valid numbers')
     else:
         messagebox.showinfo ('Error', 'From > To')
 
+def add_exception():
+    exception = exception_entry.get()
+    if exception.isdigit():
+        exception_listbox.insert(END, exception)
+        exception_entry.delete(0, END)
+
 root = Tk()
 root.title("Random num")
-root.geometry("350x350")
+root.geometry("300x450")
 
 label_diapason = Label(root, text="Диапазон:")
 label_diapason.pack(pady=10)
@@ -40,6 +58,18 @@ button.pack(pady=20)
 
 result = Label(root, text="")
 result.pack()
+
+exception_label = Label(root, text="Исключения:")
+exception_label.pack(pady=10)
+
+exception_entry = Entry(root)
+exception_entry.pack(pady=5)
+
+add_btn = Button(root, text="Add", command=add_exception)
+add_btn.pack(pady=5)
+
+exception_listbox = Listbox(root)
+exception_listbox.pack(pady=10)
 
 
 root.mainloop()
