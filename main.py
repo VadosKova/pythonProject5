@@ -34,7 +34,7 @@ def add_exception():
 
 root = Tk()
 root.title("Random num")
-root.geometry("350x350")
+root.geometry("300x450")
 
 label_diapason = Label(root, text="Диапазон:")
 label_diapason.pack(pady=10)
@@ -58,6 +58,18 @@ button.pack(pady=20)
 
 result = Label(root, text="")
 result.pack()
+
+exception_label = Label(root, text="Исключения:")
+exception_label.pack(pady=10)
+
+exception_entry = Entry(root)
+exception_entry.pack(pady=5)
+
+add_btn = Button(root, text="Add", command=add_exception)
+add_btn.pack(pady=5)
+
+exception_listbox = Listbox(root)
+exception_listbox.pack(pady=10)
 
 
 root.mainloop()
